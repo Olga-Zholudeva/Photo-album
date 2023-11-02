@@ -12,7 +12,12 @@ class PreBase():
 
 Base = declarative_base(PreBase)
 
-engine = create_async_engine(settings.database_url)
+engine = create_async_engine(
+    url=settings.database_url,
+    echo=True,  # При установлении этого параметра в консоль будут выводится все зарпосы, которые делает sqlalchemy к нашей БД
+    # pool_size=5, # Количество соединений
+    # max_overflow=10 # Количество доплнительных подключений, на случай если все доступные подключения уже заняты
+)
 
 AsyncSessionLocal = sessionmaker(engine, class_=AsyncSession)
 
