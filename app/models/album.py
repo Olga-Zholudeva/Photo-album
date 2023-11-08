@@ -1,6 +1,5 @@
 from core.db import Base
-
-from sqlalchemy import Column, String, Text, DateTime
+from sqlalchemy import Column, DateTime, String, Text
 
 
 class Album(Base):

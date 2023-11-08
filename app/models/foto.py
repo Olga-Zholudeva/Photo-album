@@ -1,11 +1,11 @@
-from sqlalchemy import Column, Text, Integer, ForeignKey, DateTime
-
-from core.db import Base
 from datetime import datetime
 
+from core.db import Base
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, Text
 
-class Foto (Base):
-    file = Column()
+
+class Photo(Base):
+    photography = Column()  # Нужно разобраться как добавлять изображения
     discription = Column(Text, nullable=False)
     album_id = Column(Integer, ForeignKey("album.id"))
     date = Column(DateTime, default=datetime.now)
