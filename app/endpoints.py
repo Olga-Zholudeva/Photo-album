@@ -10,5 +10,6 @@ templates = Jinja2Templates(directory="templates")
 
 @router.get("/", response_class=HTMLResponse)
 async def test(request: Request):
+    """Обрабочик запросов к стартовой странице."""
     data = {"page": "Home page"}
     return templates.TemplateResponse("home.html", {"request": request, "data": data})
